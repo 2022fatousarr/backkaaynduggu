@@ -13,24 +13,14 @@ connectDB();
 
 app.use(express.json());
 app.use(cors());
-app.use("/produit", produitRoutes);
+app.use("/api/produits", produitRoutes);
 
  // Route GET
 app.get("/", (req, res) => {
-  res.json({ message: "Bienvenue sur mon API" });
+  res.json({ message: "Bienvenue sur Kaay Nduggu" });
 });
 
 
-
-
-// Route POST
-app.post("/api/produits", (req, res) => {
-  const produit = req.body;
-  res.json({
-    message: "Produit ajouté",
-    produit
-  });
-});
 
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur port ${PORT}`);

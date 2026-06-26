@@ -3,39 +3,40 @@ const mongoose = require("mongoose");
 const produitSchema = new mongoose.Schema({
   nom: {
     type: String,
-    required: true
+    required: true,
   },
 
   prix: {
     type: Number,
-    required: true
+    required: true,
   },
 
   unite: {
     type: String,
-    default: "kg"
+    default: "kg",
   },
 
   image: {
-    type: String
+    type: String,
   },
 
   description: {
-    type: String
+    type: String,
   },
 
   stock: {
     type: Number,
-    default: 0
+    default: 0,
   },
 
   quantity: {
     type: Number,
-    default: 1
-  }
-
-}, {
-  timestamps: true
+    default: 1,
+  },
+  timestamps: {
+    type: string,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Produit", produitSchema);
