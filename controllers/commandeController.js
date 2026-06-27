@@ -1,5 +1,25 @@
 const Commande = require("../models/commande");
 
+// Créer une nouvelle commande
+const creerCommande = async (req, res) => {
+  try {
+    const commande = await Commande.create(req.body);
+
+    res.status(201).json({
+      success: true,
+      message: "Commande enregistrée",
+      commande,
+    });
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 // Récupérer toutes les commandes
 const getCommandes = async (req, res) => {
   try {
@@ -76,10 +96,10 @@ const getDashboardStats = async (req, res) => {
 };
 
 module.exports = {
+  creerCommande,
   getCommandes,
   addCommande,
   updateStatutCommande,
   deleteCommande,
   getDashboardStats,
-  
 };

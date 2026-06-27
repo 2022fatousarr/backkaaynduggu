@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const {
+ creerCommande,
   getCommandes,
   addCommande,
   updateStatutCommande,
@@ -16,7 +17,7 @@ router.get("/", getCommandes);
 router.get("/stats", getDashboardStats);
 
 // Ajouter une nouvelle commande
-router.post("/", addCommande);
+router.post("/", creerCommande);
 
 // Modifier le statut d'une commande
 router.put("/:id", updateStatutCommande);
