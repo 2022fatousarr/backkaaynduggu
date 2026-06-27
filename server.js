@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const produitRoutes = require("./routes/produitRoutes");
+const commandeRoutes = require("./routes/commandeRoutes");
 
 
 const app = express();
@@ -14,6 +15,7 @@ connectDB();
 app.use(express.json());
 app.use(cors());
 app.use("/api/produits", produitRoutes);
+app.use("/api/commandes", commandeRoutes);
 
  // Route GET
 app.get("/", (req, res) => {
